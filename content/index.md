@@ -1,27 +1,17 @@
 ---
-title: "Min fina titel"
+title: "Detta är jag"
 ---
 Min me-sida i kursen oophp
 =========================
 
-Detta innehåll är skrivet i markdown och du hittar innehållet i filen `content/index.md`.
+[FIGURE src="image/klipp_ronneby.jpg?w=400" class="right" caption="Ted och Bella efter besök hos 'Klippenea'"]
 
-[FIGURE src="image/me.jpg?w=400&a=4,27,11,0&cf&sharpen" class="right" caption="Bild på mig, ätandes glass och hållandes ett kort på någon jultillställning."]
+Jag heter Magnus Danielsson. Första läsåret på BTH går mot sitt slut. Vissa kurser har gått bra och vissa kurser har gått. På något sätt har vi lyckats pricka in ihängande förkylningar och andra otrevliga sjukdommar som hör vintern till. Det två figurerna till höger kämpar på och tycker nog pappa ska sluta sitta vid datorn så mycket som han gör. Några veckor till innan sommaren tror jag vi klarar av allihopa.
 
-Detta är min me-sida i kursen. Denna sidan innehåller en presentation av mig själv. Underhåll denna sidan under hela kursen och uppdatera den efter hand och behov.
+Mina första år tillbringade jag mestadels i Johannishus då jag bodde där till -95. Första datorn jag hade fick sitt hem i mitt rum. En Commodore 64 med bandstation. Hur fränt som helst! Fick man låna hem spel av någon så satte man kasetten i sin stereo och kopierade över hela bandet till ett nytt band. För att justera bandet till läshuvudet i C64:ans bandstation, minns jag att vi satte på flera lager frystejp på utvalda ställen på banden. Nästa dator var en Pentium 100 MHz. Efter många datorer, några köpta via föräldrarnas jobb vilket var vanligt på den tiden, så har jag nu min första mac. En Macbook Pro som jag försöker lära mig. Jag är rätt så nöjd än så länge måste jag säga.
 
-Så, en presentation en bra början. Skriv några ord om dig själv. Jag börjar.
+Jag läste en KY-utbildning för länge sedan. Systemteknik Data-/Tele-kommunikation. Där läste vi några veckor C++ och lite Java. Inget som jag minns så mycket av men jag minns det var rätt kul att skapa egna "program" som faktiskt fungerade. Det är väl där någonstans programmering påträffades för första gången.
 
-Mitt namn är Mikael Roos. Född och uppvuxen i Bankeryd, Småland, strax utanför Jönköping, i ett villaområde som byggdes upp samtidigt som vi flyttade in där. Jag gillade landhockey och har spelat bandy och hockey samt gått bowlinggymnasiet i Nässjö. Jag har varit städare, diskare, kallskänka, servitör och kock. På ett bananskal landade jag i Ronneby när jag började högskolan 1990 där och nu är jag kvar med fru, barn och så vidare.
+Jag har mest jobbat inom mobil-branchen efter det. Telenor/UIQ/3GIS/Huawei har varit några av mina arbetsplatser. Jag har jobbat mycket som "drivetestare" på 3GIS och Huawei och mycket inom support samt lite testning/validering.
 
-Programmering har alltid intresserat mig sedan 13-årsåldern och min första dator var en Spectravideo 328 med bandspelare.
-
-Om jag skall nämna någon hobby, förutom webbprogrammering, så får det bli att bära sten på sommarstugetomten, och det finns sten så det räcker och blir över.
-
-Till och från får jag för mig att börja på lite hobbies, ett år satsade jag på pokerspel, ett annat år var det geocaching, sedan turfing och nu på sistone verkar släktforskning lite spännande. Annars kan jag alltid koda på något av mina opensource-projekt, det finns och blir över.
-
-Vill du läsa mer om vad jag jobbat med så kan du kika på min [Linkedin-profil](https://www.linkedin.com/in/pt90mr/).
-
-Vi syns och hörs i forum och chatt!
-
-/Mikael
+/Magnus

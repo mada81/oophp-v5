@@ -1,3 +1,4 @@
-#### Footer col 3
+#### Kontaktinfo
 
-Med brödtext i ett stycke som säger något trevligt om just detta block, eller kanske en lista av länkar.
+<a href="www.linkedin.com/in/madanielsson">LinkedIn</a>
+<a href="https://www.facebook.com/magnus.danielsson.37">Facebook</a>

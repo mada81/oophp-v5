@@ -1,3 +1,3 @@
-#### Footer col 1
+#### Avklarade kurser
 
-Med brödtext i ett stycke som säger något trevligt om just detta block, eller kanske en lista av länkar.
+Python | Htmlphp | Design | JavaScript1 | Oopython | Databas 
