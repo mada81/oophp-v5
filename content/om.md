@@ -21,8 +21,6 @@ Om
 
 Detta innehåll är skrivet i markdown och du hittar innehållet i filen `content/om.md`.
 
-Skriv några kloka ord om kursen?
+Det blev en sen start på kursen för min del. Hoppas kunna jobba ikapp ett steg i taget. Så här kan det se ut hemma när studierna flyter på.
 
-Lägg till en fin och representativ bild för kursen, enligt ditt eget val.
-
-[FIGURE src=image/car.png?w=740&filter=grayscale&f1=colorize,0,30,0,0 caption="En fin bil som demobild, lite oklart hur den är representativ, men ändå..."]
+[FIGURE src=image/studiero.jpg?w=550&h=450&crop-to-fit&area=15,10,0,5" caption="Typisk kväll när man lämnat datorn några minuter"]
