@@ -1,0 +1,23 @@
+/**
+ * Breadcrumbs layout
+ */
+
+.region-breadcrumb {
+    #desinax-vgrid.column(@columns);
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0, 0, 25px, 0px rgba(0, 0, 0, 0.5);
+    list-style: none;
+
+}
+
+.region-breadcrumb ul li {
+    display: inline;
+    box-shadow: 0, 0, 25px, 0px rgba(0, 0, 0, 0.5);
+}
+
+.region-breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+    box-shadow: 0, 0, 25px, 0px rgba(0, 0, 0, 0.5);
+}

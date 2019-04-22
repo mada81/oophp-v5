@@ -12,7 +12,6 @@
  * General layout
  */
 .inner-wrap {
-    max-width: 1400px;
     margin: 0 auto;
     background-color: #eaecff;
     overflow: auto;
@@ -28,7 +27,9 @@
 
 .inner-wrap-main {
     // .clearfix();
-    overflow: auto;
+    overflow: hidden;
+    max-width: 1400px;
+
 }
 
 .region-sidebar-left.has-sidebar-right,
@@ -48,6 +49,7 @@
     margin-left: 10%;
     float: left;
     overflow: auto;
+    background-color: rgba(255, 255, 255, 0.4);
 
     &.has-sidebar {
         margin-left: 0;

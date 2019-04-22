@@ -86,22 +86,13 @@ Next step is to activate all grid styles to the typographic elements, such as h1
 #desinax-hgrid.activateDefaultTypography();
 ```
 
-The next step is to optionally enable the to show the grid. This is helpful when one want to check that the typography actually alines to the grid.
+The next step is to optionally enable the to show the grid. This is helpful when one want to check that the typpgraphy actually alines to the grid.
 
 ```less
 // Show the grid
 .hgrid .wrap {
     @gridImage: "../../img/magic-number-@{magicNumber}.png";
     #desinax-hgrid.showGrid(@gridImage);
-}
-```
-
-Or you can use the alternative `showGrid` that works more dynamiccaly, without a need of a background image.
-
-```less
-// Show the grid
-.hgrid .wrap {
-    #desinax-hgrid.showGridAlt();
 }
 ```
 

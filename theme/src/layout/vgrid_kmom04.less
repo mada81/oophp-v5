@@ -1,0 +1,27 @@
+/**
+ * General layout
+ */
+
+.row {
+    #desinax-vgrid.row();
+    margin-bottom:  @magicNumber; // 12px;
+}
+
+.inner-wrap {
+    #desinax-vgrid.grid(1100px);
+    background-color: @innerWrap;
+}
+
+.inner-wrap-header {
+    #desinax-vgrid.grid(100%);
+}
+
+.vgrid .inner-wrap {
+    @gridImage: "../img/grid_24x30x10-nomargin.png";
+    //@gridImage: "../../img/grid_12x60x20-nomargin.png";
+    #desinax-vgrid.showGrid(@gridImage, 1100px);
+
+    &.inner-wrap-header {
+        #desinax-vgrid.showGrid(@gridImage);
+    }
+}

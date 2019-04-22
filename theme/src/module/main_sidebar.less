@@ -1,0 +1,42 @@
+/**
+ * Main and sidebar layout
+ */
+
+article {
+    #desinax-vgrid.push(1);
+}
+
+.region-main {
+    #desinax-vgrid.column(@columns * 3 / 4);
+    #desinax-vgrid.push(1);
+    
+
+    &.has-sidebar {
+        #desinax-vgrid.push(0);
+        // margin-left: 0;
+    }
+
+    &.has-sidebar-right {
+        #desinax-vgrid.column(@columns * 3 / 4 - 1);
+    }
+    
+    &.has-sidebar-right.has-sidebar-left {
+        #desinax-vgrid.column(@columns - 10);
+    }
+}
+
+.region-sidebar-left,
+.region-sidebar-right {
+    #desinax-vgrid.column(@columns * 1 / 4);
+    // width: 30%;
+    // float: left;
+}
+
+.region-sidebar-right {
+    #desinax-vgrid.push(1);
+}
+
+.region-sidebar-left.has-sidebar-right,
+.region-sidebar-right.has-sidebar-left {
+    #desinax-vgrid.column(@columns * 1 / 4 - 1);
+}

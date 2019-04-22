@@ -12,10 +12,9 @@
  * General layout
  */
 .inner-wrap {
-    max-width: 1400px;
     margin: 0 auto;
-    background-color: #eaecff;
-    overflow: auto;
+    // background-color: #eaecff;
+    // overflow: auto;
 }
 
 .site-logo {
@@ -28,12 +27,14 @@
 
 .inner-wrap-main {
     // .clearfix();
-    overflow: auto;
+    // overflow: hidden;
+    max-width: 1200px;
+
 }
 
 .region-sidebar-left.has-sidebar-right,
 .region-sidebar-right.has-sidebar-left {
-    width: 20%;
+    // width: 20%;
 }
 
 // .region-main,
@@ -44,23 +45,24 @@
 // }
 
 .region-main {
-    width: 70%;
-    margin-left: 10%;
+    // width: 70%;
+    // margin-left: 10%;
     float: left;
-    overflow: auto;
+    // overflow: auto;
+    background-color: rgba(255, 255, 255, 0.4);
 
     &.has-sidebar {
         margin-left: 0;
     }
 
     &.has-sidebar-left.has-sidebar-right {
-        width: 60%;
+        // width: 60%;
     }
 }
 
 .region-sidebar-left,
 .region-sidebar-right {
-    width: 30%;
+    // width: 30%;
     float: left;
 }
 
@@ -69,7 +71,7 @@
  */
 
 .footer-column {
-    width: 33%;
+    // width: 33%;
     float: left;
     margin-bottom: 1em;
     // border-bottom: solid 2px #cfd3f8;
