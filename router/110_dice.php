@@ -103,7 +103,6 @@ $app->router->post("dice/play", function () use ($app) {
             $_SESSION["cpuScore"] += $_SESSION["cpuTurnScore"];
             $_SESSION["cpuTurnScore"] = 0;
             $_SESSION["activePlayer"] = "Spelare";
-
         }
 
         // Computer has below 20 and keeps rolling.

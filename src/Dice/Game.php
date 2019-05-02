@@ -2,9 +2,8 @@
 
 namespace Mada\Dice;
 
-
 /**
- * Game class for Dice gmae 
+ * Game class for Dice game
  */
 class Game
 {
@@ -66,7 +65,7 @@ class Game
      */
     public function cpuCheckScore() : int
     {
-        $stay = 0;        
+        $stay = 0;
         if ($this->player == "Datorn" && $this->turnScore > 20) {
             $stay = 1;
         }
@@ -79,9 +78,9 @@ class Game
      * Returns true if it is.
      */
     public function winCondition()
-    {        
+    {
         if ($this->totalScore + $this->turnScore >= $this->winScore) {
-            $this->win = true;      
+            $this->win = true;
         }
         return $this->win;
     }

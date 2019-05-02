@@ -33,5 +33,4 @@ class GameCpuCheckScoreTest extends TestCase
         $exp = 1;
         $this->assertEquals($exp, $res);
     }
-
 }

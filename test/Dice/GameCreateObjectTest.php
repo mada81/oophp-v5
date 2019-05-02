@@ -53,5 +53,4 @@ class GameCreateObjectTest extends TestCase
         $exp = "Janne";
         $this->assertEquals($exp, $res);
     }
-
 }

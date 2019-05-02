@@ -25,7 +25,7 @@ class GameWinConditionTest extends TestCase
     /**
      * Test winCondition. Total score + turn score > 100
      */
-     public function testWinConditionTrue()
+    public function testWinConditionTrue()
     {
         $game = new Game(50, 55);
 
@@ -33,5 +33,4 @@ class GameWinConditionTest extends TestCase
         $exp = true;
         $this->assertEquals($exp, $res);
     }
-
 }

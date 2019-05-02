@@ -30,17 +30,17 @@ namespace Anax\View;
 <br>
 <form method="post">
     <input type="submit" <?php if ($activePlayer == "Datorn" || $win == true) : ?>
-    <?= "disabled" ?>
-    <?php endif; ?> name="doRoll" value="Kasta tärningarna">
+        <?= "disabled" ?>
+        <?php endif; ?> name="doRoll" value="Kasta tärningarna">
 
     <input type="submit" <?php if ($activePlayer == "Datorn" || $win == true) : ?>
-    <?= "disabled" ?>
-    <?php endif; ?> name="doStay" value="Stanna och spara">
+        <?= "disabled" ?>
+        <?php endif; ?> name="doStay" value="Stanna och spara">
     <br>
     <br>
     <input type="submit" <?php if ($activePlayer == "Spelare" || $win == true) : ?>
-    <?= "disabled" ?>
-    <?php endif; ?> name="doNext" value="Datorns nästa drag">
+        <?= "disabled" ?>
+        <?php endif; ?> name="doNext" value="Datorns nästa drag">
 </form>
 <br>
 
@@ -53,26 +53,3 @@ namespace Anax\View;
 <?php if ($win == true) : ?>
     <p><b>Spelet över. Vinnare är: <?= $activePlayer ?></b></p>
 <?php endif; ?>
-
-
-<!-- <form method="post">
-    <input type="submit" name="doInit" value="Restart game">
-    <input type="submit" name="doCheat" value="Cheater?">
-</form> -->
-
-<!-- <div class="board">
-    <div class="players">
-        <div class="cpu">Datorn: </div>
-        <div class="player">Spelare: </div>
-    </div>
-    <div class="score">
-        <div class="cpu-score"></div>
-        <div class="player-score"></div>
-    </div>
-    <div class="turn-score">
-        <div class="cpu-turn-score"></div>
-        <div class="player-turn-score"></div>
-    </div>
-</div> -->
-
-
