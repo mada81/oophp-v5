@@ -58,4 +58,15 @@ class DiceHand
         }
         return $this->values;
     }
+
+
+    /**
+     * Get number of dices.
+     *
+     * @return int number of dices..
+    */
+    public function getNumberOfDices() : int
+    {
+        return sizeof($this->dices);
+    }
 }

@@ -17,11 +17,9 @@ class Game
      * @var DiceHand $diceHand   DiceHand object.
      */
     private $winScore = 100;
-    private $win = false;
     private $totalScore = 0;
     private $turnScore = 0;
     private $player = "";
-    private $diceHand = new DiceHand;
 
 
     /**
@@ -37,8 +35,8 @@ class Game
         $this->totalScore = $totalScore;
         $this->turnScore = $turnScore;
         $this->player = $player;
-        $this->win = $win;
-        $this->diceHand = $diceHand;
+        $this->win = false;
+        $this->diceHand = new DiceHand;
     }
 
 
@@ -86,5 +84,34 @@ class Game
             $this->win = true;      
         }
         return $this->win;
+    }
+
+
+    /**
+     * Return total score.
+     */
+    public function getTotalScore() : int
+    {
+        return $this->totalScore;
+    }
+
+
+
+    /**
+     * Return turn score.
+     */
+    public function getTurnScore() : int
+    {
+        return $this->turnScore;
+    }
+
+
+
+    /**
+     * Return player.
+     */
+    public function getPlayer() : string
+    {
+        return $this->player;
     }
 }

@@ -35,7 +35,7 @@ class Dice
      */
     public function roll() : int
     {
-        $this->lastRoll = rand(1, $sides);
+        $this->lastRoll = rand(1, $this->sides);
         return $this->lastRoll;
     }
 
@@ -48,5 +48,16 @@ class Dice
     public function getLastRoll() : int
     {
         return $this->lastRoll;
+    }
+
+
+    /**
+     * Get value of sides.
+     *
+     * @return int value of sides.
+    */
+    public function getSides() : int
+    {
+        return $this->sides;
     }
 }

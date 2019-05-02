@@ -5,9 +5,9 @@ namespace Mada\Dice;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test cases for class Dice
+ * Test cases for class DiceHand
  */
-class DiceCreateObjectTest extends TestCase
+class DiceHandCreateObjectTest extends TestCase
 {
     /**
      * Construct object and verify that the object has the expected
@@ -15,11 +15,11 @@ class DiceCreateObjectTest extends TestCase
      */
     public function testCreateObjectNoArguments()
     {
-        $dice = new Dice();
-        $this->assertInstanceOf("\Mada\Dice\Dice", $dice);
+        $diceHand = new DiceHand();
+        $this->assertInstanceOf("\Mada\Dice\DiceHand", $diceHand);
 
-        $res = $dice->getSides();
-        $exp = 6;
+        $res = $diceHand->getNumberOfDices();
+        $exp = 2;
         $this->assertEquals($exp, $res);
     }
 
@@ -31,10 +31,10 @@ class DiceCreateObjectTest extends TestCase
      */
     public function testCreateObjectArgument()
     {
-        $dice = new Dice(10);
-        $this->assertInstanceOf("\Mada\Dice\Dice", $dice);
+        $diceHand = new DiceHand(10);
+        $this->assertInstanceOf("\Mada\Dice\DiceHand", $diceHand);
 
-        $res = $dice->getSides();
+        $res = $diceHand->getNumberOfDices();
         $exp = 10;
 
         $this->assertEquals($exp, $res);
