@@ -9,7 +9,7 @@
  */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
-   ========================================================================== */
+     ========================================================================== */
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -21,7 +21,7 @@ html {
   /* 2 */
 }
 /* Sections
-   ========================================================================== */
+     ========================================================================== */
 /**
  * Remove the margin in all browsers.
  */
@@ -43,7 +43,7 @@ h1 {
   margin: 0.67em 0;
 }
 /* Grouping content
-   ========================================================================== */
+     ========================================================================== */
 /**
  * 1. Add the correct box sizing in Firefox.
  * 2. Show the overflow in Edge and IE.
@@ -67,7 +67,7 @@ pre {
   /* 2 */
 }
 /* Text-level semantics
-   ========================================================================== */
+     ========================================================================== */
 /**
  * Remove the gray background on active links in IE 10.
  */
@@ -129,7 +129,7 @@ sup {
   top: -0.5em;
 }
 /* Embedded content
-   ========================================================================== */
+     ========================================================================== */
 /**
  * Remove the border on images inside links in IE 10.
  */
@@ -137,7 +137,7 @@ img {
   border-style: none;
 }
 /* Forms
-   ========================================================================== */
+     ========================================================================== */
 /**
  * 1. Change the font styles in all browsers.
  * 2. Remove the margin in Firefox and Safari.
@@ -285,7 +285,7 @@ textarea {
   /* 2 */
 }
 /* Interactive
-   ========================================================================== */
+     ========================================================================== */
 /*
  * Add the correct display in Edge, IE 10+, and Firefox.
  */
@@ -299,7 +299,7 @@ summary {
   display: list-item;
 }
 /* Misc
-   ========================================================================== */
+     ========================================================================== */
 /**
  * Add the correct display in IE 10+.
  */
@@ -5220,6 +5220,31 @@ figure.figure.right {
 h3,
 h2 {
   clear: both;
+}
+/**
+ * Dice game layout
+ */
+table {
+  min-width: 300px;
+  border-collapse: collapse;
+}
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+tr:nth-of-type(even) {
+  background: #ccc;
+}
+th {
+  background: orange;
+  color: #fff;
+  font-weight: bold;
+}
+td,
+th {
+  padding: 10px;
+  border: 1px solid #888;
+  text-align: left;
+  font-size: 20px;
 }
 /**
  * A responsive menu.
