@@ -44,7 +44,7 @@ namespace Anax\View;
 </form>
 <br>
 
-<a href=dice-game>
+<a href="../dice-game">
     <button>Starta om spelet</button>
 </a>
 
