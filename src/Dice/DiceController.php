@@ -47,15 +47,17 @@ class DiceController implements AppInjectableInterface
      */
     public function initAction() : object
     {
+        $session = $this->app->session;
+        $response = $this->app->response;
+
         // Init game session.
         $game = new Game();
-        $_SESSION["cpuTotalScore"] = 0;
-        $_SESSION["cpuTurnScore"] = 0;
-        $_SESSION["playerTotalScore"] = 0;
-        $_SESSION["playerTurnScore"] = 0;
-        $_SESSION["activePlayer"] = "Spelare";
-        $_SESSION["class"] = null;
-
+        $session->set("cpuTotalScore", 0);
+        $session->set("cpuTurnScore", 0);
+        $session->set("playerTotalScore", 0);
+        $session->set("playerTurnScore", 0);
+        $session->set("activePlayer", "Spelare");
+        $session->set("class", null);
 
         return $this->app->response->redirect("dice1/play");
     }
@@ -72,24 +74,28 @@ class DiceController implements AppInjectableInterface
      */
     public function playActionGet() : object
     {
+        $page = $this->app->page;
+        $session = $this->app->session;
+
         // Start play gmae
-        $title = "Tärningsspel 100 (1)";
+        $title = "Tärningsspel 100 (Controller)";
 
         // Get current settings from SESSION.
-        $cpuTotalScore = $_SESSION["cpuTotalScore"];
-        $playerTotalScore = $_SESSION["playerTotalScore"];
-        $cpuTurnScore = $_SESSION["cpuTurnScore"] ?? 0;
-        $playerTurnScore = $_SESSION["playerTurnScore"] ?? 0;
-        $activePlayer = $_SESSION["activePlayer"] ?? null;
-        $doInit = $_SESSION["doInit"] ?? null;
-        $win = $_SESSION["win"] ?? null;
-        $class = $_SESSION["class"] ?? null;
-        $res = $_SESSION["res"] ?? null;
+        $cpuTotalScore = $session->get("cpuTotalScore");
+        $playerTotalScore = $session->get("playerTotalScore");
+        $cpuTurnScore = $session->get("cpuTurnScore", 0);
+        $playerTurnScore = $session->get("playerTurnScore", 0);
+        $activePlayer = $session->get("activePlayer");
+        $doInit = $session->get("doInit");
+        $win = $session->get("win");
+        $class = $session->get("class");
+        $res = $session->get("res");
 
-        $_SESSION["win"] = null;
-        $_SESSION["doRoll"] = null;
-        $_SESSION["doStay"] = null;
-        $_SESSION["doNext"] = null;
+        // Set varables in session
+        $session->set("win", null);
+        $session->set("doRoll", null);
+        $session->set("doStay", null);
+        $session->set("doNext", null);
 
         $data = [
             "cpuTotalScore"   => $cpuTotalScore,
@@ -102,10 +108,10 @@ class DiceController implements AppInjectableInterface
             "res" => $res,
         ];
 
-        $this->app->page->add("dice1/play", $data);
-        $this->app->page->add("dice1/debug");
+        $page->add("dice1/play", $data);
+        $page->add("dice1/debug");
 
-        return $this->app->page->render([
+        return $page->render([
             "title" => $title,
         ]);
     }
@@ -121,22 +127,25 @@ class DiceController implements AppInjectableInterface
      */
     public function playActionPost() : object
     {
+        $request = $this->app->request;
+        $response = $this->app->response;
+
         // Incomming variables.
-        $doRoll = $_POST["doRoll"] ?? null;
-        $doStay = $_POST["doStay"] ?? null;
-        $doNext = $_POST["doNext"] ?? null;
+        $doRoll = $request->getPost("doRoll");
+        $doStay = $request->getPost("doStay");
+        $doNext = $request->getPost("doNext");
 
         // Player rolls the dices.
         if ($doRoll) {
-            return $this->app->response->redirect("dice1/roll");
+            return $response->redirect("dice1/roll");
         }
             // Player saves turn score and passes turn to next player.
         if ($doStay) {
-            return $this->app->response->redirect("dice1/stay");
+            return $response->redirect("dice1/stay");
         }
         // Computers next step.
         if ($doNext) {
-            return $this->app->response->redirect("dice1/next");
+            return $response->redirect("dice1/next");
         }
     }
 
@@ -151,25 +160,29 @@ class DiceController implements AppInjectableInterface
      */
     public function rollAction() : object
     {
+        $response = $this->app->response;
+        $session = $this->app->session;
+
         // Get current settings from SESSION.
-        $playerTotalScore = $_SESSION["playerTotalScore"];
-        $playerTurnScore = $_SESSION["playerTurnScore"];
+        $playerTotalScore = $session->get("playerTotalScore");
+        $playerTurnScore = $session->get("playerTurnScore");
+
         $game = new Game($playerTotalScore, $playerTurnScore);
         $res = $game->rollHand();
         $playerTurnScore = $game->playerRoll($res);
         $class = $game->getValues();
-        $_SESSION["res"] = $res;
-        $_SESSION["class"] = $class;
-        $_SESSION["win"] = $game->didIWin($playerTotalScore, $playerTurnScore);
-        $_SESSION["playerTurnScore"] = $playerTurnScore;
+        $session->set("res", $res);
+        $session->set("class", $class);
+        $session->set("win", $game->didIWin($playerTotalScore, $playerTurnScore));
+        $session->set("playerTurnScore", $playerTurnScore);
 
         // If a 1 is rolled.
         if ($playerTurnScore == 0) {
-            $_SESSION["playerTurnScore"] = 0;
-            $_SESSION["activePlayer"] = "Datorn";
+            $session->set("playerTurnScore", 0);
+            $session->set("activePlayer", "Datorn");
         }
 
-        return $this->app->response->redirect("dice1/play");
+        return $response->redirect("dice1/play");
     }
 
 
@@ -183,11 +196,14 @@ class DiceController implements AppInjectableInterface
      */
     public function stayAction() : object
     {
-        $_SESSION["playerTotalScore"] += $_SESSION["playerTurnScore"];
-        $_SESSION["playerTurnScore"] = 0;
-        $_SESSION["activePlayer"] = "Datorn";
+        $response = $this->app->response;
+        $session = $this->app->session;
 
-        return $this->app->response->redirect("dice1/play");
+        $session->set("playerTotalScore", $session->get("playerTotalScore") + $session->get("playerTurnScore"));
+        $session->set("playerTurnScore", 0);
+        $session->set("activePlayer", "Datorn");
+
+        return $response->redirect("dice1/play");
     }
 
 
@@ -202,17 +218,21 @@ class DiceController implements AppInjectableInterface
      */
     public function nextAction() : object
     {
-        $cpuTotalScore = $_SESSION["cpuTotalScore"];
-        $playerTotalScore = $_SESSION["playerTotalScore"];
-        $cpuTurnScore = $_SESSION["cpuTurnScore"] ?? 0;
+        $response = $this->app->response;
+        $session = $this->app->session;
+
+        $cpuTotalScore = $session->get("cpuTotalScore");
+        $playerTotalScore = $session->get("playerTotalScore");
+        $cpuTurnScore = $session->get("cpuTurnScore", 0);
+
         $game = new Game($playerTotalScore, 0, $cpuTotalScore, $cpuTurnScore);
         $stay = $game->cpuCheckScore();
 
         // Computer has above 20 turn score and stays.
         if ($stay == 1) {
-            $_SESSION["cpuTotalScore"] += $_SESSION["cpuTurnScore"];
-            $_SESSION["cpuTurnScore"] = 0;
-            $_SESSION["activePlayer"] = "Spelare";
+            $session->set("cpuTotalScore", $session->get("cpuTotalScore") + $session->get("cpuTurnScore"));
+            $session->set("cpuTurnScore", 0);
+            $session->set("activePlayer", "Spelare");
         }
 
         // Computer has below 20 and keeps rolling.
@@ -220,17 +240,17 @@ class DiceController implements AppInjectableInterface
             $res = $game->rollHand();
             $cpuTurnScore = $game->cpuRoll($res);
             $class = $game->getValues();
-            $_SESSION["res"] = $res;
-            $_SESSION["class"] = $class;
-            $_SESSION["win"] = $game->didIWin($cpuTotalScore, $cpuTurnScore);
-            $_SESSION["cpuTurnScore"] = $cpuTurnScore;
+            $session->set("res", $res);
+            $session->set("class", $class);
+            $session->set("win", $game->didIWin($cpuTotalScore, $cpuTurnScore));
+            $session->set("cpuTurnScore", $cpuTurnScore);
 
             // Computer rolls a 1.
             if ($cpuTurnScore == 0) {
-                $_SESSION["cpuTurnScore"] = 0;
-                $_SESSION["activePlayer"] = "Spelare";
+                $session->set("cpuTurnScore", 0);
+                $session->set("activePlayer", "Spelare");
             }
         }
-        return $this->app->response->redirect("dice1/play");
+        return $response->redirect("dice1/play");
     }
 }

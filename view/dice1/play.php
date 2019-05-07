@@ -2,7 +2,7 @@
 
 namespace Anax\View;
 
-?><h1>Tärningsspel 100 (1)</h1>
+?><h1>Tärningsspel 100 (Controller)</h1>
 
 
 <?php if ($activePlayer) : ?>
@@ -55,7 +55,7 @@ namespace Anax\View;
 </form>
 <br>
 
-<a href="../dice-game">
+<a href="../dice-controller">
     <button>Starta om spelet</button>
 </a>
 

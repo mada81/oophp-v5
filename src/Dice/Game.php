@@ -101,6 +101,9 @@ class Game
         $stay = false;
         if ($this->cpuTurnScore > 20) {
             $stay = true;
+            if ($this->playerTotalScore > 87) {
+                $stay = false;
+            }
         }
         return $stay;
     }
