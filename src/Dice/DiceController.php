@@ -51,7 +51,7 @@ class DiceController implements AppInjectableInterface
         $response = $this->app->response;
 
         // Init game session.
-        $game = new Game();
+        // $game = new Game();
         $session->set("cpuTotalScore", 0);
         $session->set("cpuTurnScore", 0);
         $session->set("playerTotalScore", 0);
@@ -59,7 +59,7 @@ class DiceController implements AppInjectableInterface
         $session->set("activePlayer", "Spelare");
         $session->set("class", null);
 
-        return $this->app->response->redirect("dice1/play");
+        return $response->redirect("dice1/play");
     }
 
 

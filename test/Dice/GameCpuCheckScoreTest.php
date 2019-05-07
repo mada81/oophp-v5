@@ -14,10 +14,10 @@ class GameCpuCheckScoreTest extends TestCase
      */
     public function testCpuCheckScoreLow()
     {
-        $game = new Game(0, 18, "Datorn");
+        $game = new Game(20, 0, 20, 18);
 
         $res = $game->cpuCheckScore();
-        $exp = 0;
+        $exp = false;
         $this->assertEquals($exp, $res);
     }
 
@@ -27,10 +27,23 @@ class GameCpuCheckScoreTest extends TestCase
      */
     public function testCpuCheckScoreHigh()
     {
-        $game = new Game(0, 25, "Datorn");
+        $game = new Game(20, 0, 20, 25);
 
         $res = $game->cpuCheckScore();
-        $exp = 1;
+        $exp = true;
+        $this->assertEquals($exp, $res);
+    }
+    
+    
+    /**
+     * Test cpuCheckScore. Player score is 90. Cpu should keep rolling. Expecting "false".
+     */
+    public function testCpuCheckScorePlayerHigh()
+    {
+        $game = new Game(90, 0, 20, 25);
+        
+        $res = $game->cpuCheckScore();
+        $exp = false;
         $this->assertEquals($exp, $res);
     }
 }

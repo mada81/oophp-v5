@@ -96,7 +96,7 @@ class Game
      * Check if player "Datorn" has turnScore above 20.
      * Returns 1 if true. 0 if false.
      */
-    public function cpuCheckScore() : int
+    public function cpuCheckScore()
     {
         $stay = false;
         if ($this->cpuTurnScore > 20) {
@@ -138,15 +138,5 @@ class Game
     public function getPlayerTurnScore() : int
     {
         return $this->playerTurnScore;
-    }
-
-
-
-    /**
-     * Return player.
-     */
-    public function getPlayer() : string
-    {
-        return $this->player;
     }
 }

@@ -15,11 +15,11 @@ class GameCreateObjectTest extends TestCase
      */
     public function testCreateObjectNoArguments()
     {
-        $game = new Game();
+        $game = new Game(56, 0, 0, 0);
         $this->assertInstanceOf("\Mada\Dice\Game", $game);
 
-        $res = $game->getTotalScore();
-        $exp = 0;
+        $res = $game->getPlayerTotalScore();
+        $exp = 56;
         $this->assertEquals($exp, $res);
     }
 
@@ -34,23 +34,8 @@ class GameCreateObjectTest extends TestCase
         $game = new Game(0, 38);
         $this->assertInstanceOf("\Mada\Dice\Game", $game);
 
-        $res = $game->getTurnScore();
+        $res = $game->getPlayerTurnScore();
         $exp = 38;
-        $this->assertEquals($exp, $res);
-    }
-
-
-    /**
-     * Construct object and verify that the object has the expected
-     * properties. Use last arguments.
-     */
-    public function testCreateObjectLastArguments()
-    {
-        $game = new Game(0, 38, "Janne");
-        $this->assertInstanceOf("\Mada\Dice\Game", $game);
-
-        $res = $game->getPlayer();
-        $exp = "Janne";
         $this->assertEquals($exp, $res);
     }
 }

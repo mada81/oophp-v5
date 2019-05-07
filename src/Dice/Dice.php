@@ -45,4 +45,15 @@ class Dice
     {
         return $this->lastRoll;
     }
+
+
+    /**
+     * Get number of sides.
+     *
+     * @return int value of sides.
+    */
+    public function getSides() : int
+    {
+        return $this->sides;
+    }
 }
