@@ -16,11 +16,9 @@ class Game
      * @var DiceHand $diceHand   DiceHand object.
      */
     private $winScore = 100;
-    private $playerTotalScore = 0;
-    private $playerTurnScore = 0;
-    private $cpuTotalScore = 0;
-    private $cpuTurnScore = 0;
-
+    private $totalScore = 0;
+    private $turnScore = 0;
+    private $player = "";
 
 
     /**
@@ -31,12 +29,12 @@ class Game
      * @param int $turnScore      Turn score for player is taken as param
      * @param string $player      Player name is taken as param
      */
-    public function __construct(int $playerTotalScore = 0, int $playerTurnScore = 0, int $cpuTotalScore = 0, int $cpuTurnScore = 0)
+    public function __construct(int $totalScore = 0, int $turnScore = 0, string $player = "Spelare")
     {
-        $this->playerTotalScore = $playerTotalScore;
-        $this->playerTurnScore = $playerTurnScore;
-        $this->cpuTotalScore = $cpuTotalScore;
-        $this->cpuTurnScore = $cpuTurnScore;
+        $this->totalScore = $totalScore;
+        $this->turnScore = $turnScore;
+        $this->player = $player;
+        $this->win = false;
         $this->diceHand = new DiceHand;
     }
 
@@ -45,51 +43,20 @@ class Game
      * Returns value of rolled DiceHand.
      * If DiceHand includes a dice with 1, value of roll is set to 0.
      */
-    public function rollHand() : array
-    {
-        return $this->diceHand->rollDiceHand();
-    }
-
-    /**
-     * Returns value of rolled DiceHand.
-     * If DiceHand includes a dice with 1, value of roll is set to 0.
-     */
-    public function getValues() : array
+    public function handRoll() : int
     {
         $allValues = $this->diceHand->values();
-        echo ("<pre>");
-        var_dump ($allValues);
-        echo ("</pre>");
-
+        
+        foreach ($allValues as $value) {
+            if ($value == 1) {
+                $this->turnScore = 0;
+                break;
+            }
+            $this->turnScore += $value;
+        }
         // if ($this->turnScore )
-        return $allValues;
+        return $this->turnScore;
     }
-
-    public function playerRoll($handValue) : int
-    {
-        foreach ($handValue as $value) {
-            if ($value == 1) {
-                $this->playerTurnScore = 0;
-                break;
-            }
-            $this->playerTurnScore += $value;
-        }
-        return $this->playerTurnScore;
-    }
-
-
-    public function cpuRoll($handValue) : int
-    {
-        foreach ($handValue as $value) {
-            if ($value == 1) {
-                $this->cpuTurnScore = 0;
-                break;
-            }
-            $this->cpuTurnScore += $value;
-        }
-        return $this->cpuTurnScore;
-    }
-
 
 
     /**
@@ -98,9 +65,9 @@ class Game
      */
     public function cpuCheckScore() : int
     {
-        $stay = false;
-        if ($this->cpuTurnScore > 20) {
-            $stay = true;
+        $stay = 0;
+        if ($this->player == "Datorn" && $this->turnScore > 20) {
+            $stay = 1;
         }
         return $stay;
     }
@@ -110,9 +77,9 @@ class Game
      * Check if totalScore plus turnScore is 100 or more.
      * Returns true if it is.
      */
-    public function didIWin($total, $turn)
+    public function winCondition()
     {
-        if ($total + $turn >= $this->winScore) {
+        if ($this->totalScore + $this->turnScore >= $this->winScore) {
             $this->win = true;
         }
         return $this->win;
@@ -122,9 +89,9 @@ class Game
     /**
      * Return total score.
      */
-    public function getPlayerTotalScore() : int
+    public function getTotalScore() : int
     {
-        return $this->playerTotalScore;
+        return $this->totalScore;
     }
 
 
@@ -132,9 +99,9 @@ class Game
     /**
      * Return turn score.
      */
-    public function getPlayerTurnScore() : int
+    public function getTurnScore() : int
     {
-        return $this->playerTurnScore;
+        return $this->turnScore;
     }
 
 

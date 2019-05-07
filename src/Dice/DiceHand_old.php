@@ -8,7 +8,7 @@ namespace Mada\Dice;
 class DiceHand
 {
     /**
-    * @var DiceGraphic $dices   Array consisting of dices.
+    * @var Dice $dices   Array consisting of dices.
     * @var int  $values  Array consisting of last roll of the dices.
     */
     private $dices;
@@ -26,7 +26,7 @@ class DiceHand
         $this->values = [];
 
         for ($i = 0; $i < $dices; $i++) {
-            $this->dices[]  = new DiceGraphic();
+            $this->dices[]  = new Dice();
             $this->values[] = null;
         }
     }
@@ -37,14 +37,12 @@ class DiceHand
     *
     * @return void.
     */
-    public function rollDiceHand() : array
+    private function rollDiceHand() : void
     {
-        $temp = [];
+        // var_dump($this->dices);
         for ($i = 0; $i < sizeof($this->dices); $i++) {
-            $temp[] = $this->dices[$i]->roll();
+            $this->dices[$i]->roll();
         }
-        var_dump($this->dices);
-        return $temp;
     }
 
 
@@ -56,9 +54,9 @@ class DiceHand
     public function values() : array
     {
         for ($i = 0; $i < sizeof($this->dices); $i++) {
-            $grapfDices[] = $this->dices[$i]->graphic();
+            $this->values[$i] = $this->dices[$i]->getLastRoll();
         }
-        return $grapfDices;
+        return $this->values;
     }
 
 
