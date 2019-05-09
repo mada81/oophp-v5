@@ -20,6 +20,4 @@ class GameMethodsTest extends TestCase
         $exp = $diceHand->getDices()[1]->getLastRoll();
         $this->assertEquals($exp, $res);
     }
-
-
 }

@@ -2,7 +2,6 @@
 
 namespace Mada\Dice;
 
-
 /**
  * Generating histogram data.
  */
@@ -14,8 +13,6 @@ class Histogram
      * @var int   $max    The highest possible number.
      */
     private $serie = [];
-    private $min;
-    private $max;
 
 
 
@@ -65,19 +62,4 @@ class Histogram
         }
         return $result;
     }
-
-
-    // /**
-    //  * Inject the object to use as base for the histogram data.
-    //  *
-    //  * @param HistogramInterface $object The object holding the serie.
-    //  *
-    //  * @return void.
-    //  */
-    // public function injectData(HistogramInterface $object)
-    // {
-    //     $this->serie = $object->getHistogramSerie();
-    //     $this->min   = $object->getHistogramMin();
-    //     $this->max   = $object->getHistogramMax();
-    // }
 }

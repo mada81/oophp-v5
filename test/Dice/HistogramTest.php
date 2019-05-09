@@ -45,6 +45,4 @@ class HistogramTest extends TestCase
         $exp = "";
         $this->assertNotEquals($exp, $res);
     }
-
-
 }

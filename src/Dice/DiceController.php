@@ -87,7 +87,6 @@ class DiceController implements AppInjectableInterface
         $cpuTurnScore = $session->get("cpuTurnScore", 0);
         $playerTurnScore = $session->get("playerTurnScore", 0);
         $activePlayer = $session->get("activePlayer");
-        $doInit = $session->get("doInit");
         $win = $session->get("win");
         $class = $session->get("class");
         $res = $session->get("res");
@@ -112,7 +111,7 @@ class DiceController implements AppInjectableInterface
         ];
 
         $page->add("dice1/play", $data);
-        $page->add("dice1/debug");
+        // $page->add("dice1/debug");
 
         return $page->render([
             "title" => $title,
