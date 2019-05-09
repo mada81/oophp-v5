@@ -42,7 +42,7 @@ namespace Anax\View;
 <form method="post">
     <input type="submit" <?php if ($activePlayer == "Datorn" || $win == true) : ?>
         <?= "disabled" ?>
-        <?php endif; ?> name="doRoll" value="Kasta tärningarna">
+                            <?php endif; ?> name="doRoll" value="Kasta tärningarna">
 
     <input type="submit" <?php if ($activePlayer == "Datorn" || $win == true) : ?>
         <?= "disabled" ?>

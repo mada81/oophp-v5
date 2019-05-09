@@ -128,10 +128,11 @@ class Game
      */
     public function didIWin($total, $turn)
     {
+        $win = false;
         if ($total + $turn >= $this->winScore) {
-            $this->win = true;
+            $win = true;
         }
-        return $this->win;
+        return $win;
     }
 
 

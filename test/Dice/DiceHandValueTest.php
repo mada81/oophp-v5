@@ -19,4 +19,16 @@ class DiceHandValuesTest extends TestCase
         $res = $diceHand->values();
         $this->assertIsArray($res);
     }
+
+
+    /**
+    * Test values. Array is expected
+    */
+    public function testRollDiceHand()
+    {
+        $diceHand = new DiceHand();
+
+        $res = $diceHand->rollDiceHand();
+        $this->assertIsArray($res);
+    }
 }

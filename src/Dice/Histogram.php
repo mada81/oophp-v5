@@ -67,17 +67,17 @@ class Histogram
     }
 
 
-    /**
-     * Inject the object to use as base for the histogram data.
-     *
-     * @param HistogramInterface $object The object holding the serie.
-     *
-     * @return void.
-     */
-    public function injectData(HistogramInterface $object)
-    {
-        $this->serie = $object->getHistogramSerie();
-        $this->min   = $object->getHistogramMin();
-        $this->max   = $object->getHistogramMax();
-    }
+    // /**
+    //  * Inject the object to use as base for the histogram data.
+    //  *
+    //  * @param HistogramInterface $object The object holding the serie.
+    //  *
+    //  * @return void.
+    //  */
+    // public function injectData(HistogramInterface $object)
+    // {
+    //     $this->serie = $object->getHistogramSerie();
+    //     $this->min   = $object->getHistogramMin();
+    //     $this->max   = $object->getHistogramMax();
+    // }
 }

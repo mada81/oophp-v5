@@ -25,10 +25,10 @@ interface HistogramInterface
 
 
 
-    /**
-     * Get max value for the histogram.
-     *
-     * @return int with the max value.
-     */
-    public function getHistogramMax();
+    // /**
+    //  * Get max value for the histogram.
+    //  *
+    //  * @return int with the max value.
+    //  */
+    // public function getHistogramMax();
 }

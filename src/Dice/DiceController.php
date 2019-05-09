@@ -171,13 +171,7 @@ class DiceController implements AppInjectableInterface
         $playerTurnScore = $session->get("playerTurnScore");
 
         $game = new Game($playerTotalScore, $playerTurnScore);
-        // FUNKAR
         $res = $game->rollHand();
-        // $res = $game->rollHand();
-        // $res = $game->rollHand();
-        // $res = $game->rollHand();
-        echo($res);
-        // FUNKAR
         $playerTurnScore = $game->playerRoll($res);
         $class = $game->getValues();
         $histogram = $session->get("histogram", new Histogram());

@@ -34,15 +34,15 @@ class DiceGraphic extends Dice implements HistogramInterface
     }
 
 
-    /**
-    * Get max value for the histogram.
-    *
-    * @return int with the max value.
-    */
-    public function getHistogramMax()
-    {
-        return $this->sides;
-    }
+    // /**
+    // * Get max value for the histogram.
+    // *
+    // * @return int with the max value.
+    // */
+    // public function getHistogramMax()
+    // {
+    //     return $this->sides;
+    // }
 
 
 

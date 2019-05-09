@@ -43,7 +43,6 @@ class DiceHand
         for ($i = 0; $i < sizeof($this->dices); $i++) {
             $temp[] = $this->dices[$i]->roll();
         }
-        var_dump($this->dices);
         return $temp;
     }
 

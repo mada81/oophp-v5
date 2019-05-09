@@ -38,14 +38,14 @@ trait HistogramTrait
 
 
 
-    /**
-     * Get max value for the histogram.
-     *
-     * @return int with the max value.
-     */
-    public function getHistogramMax()
-    {
-        return max($this->serie);
-    }
+    // /**
+    //  * Get max value for the histogram.
+    //  *
+    //  * @return int with the max value.
+    //  */
+    // public function getHistogramMax()
+    // {
+    //     return max($this->serie);
+    // }
 }
 
