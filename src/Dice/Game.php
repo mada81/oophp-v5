@@ -50,6 +50,19 @@ class Game
         return $this->diceHand->rollDiceHand();
     }
 
+
+
+    /**
+    * Returns value of rolled DiceHand.
+    * If DiceHand includes a dice with 1, value of roll is set to 0.
+    */
+    public function getDiceHand()
+    {
+        return $this->diceHand->getDices();
+    }
+
+
+
     /**
      * Returns value of rolled DiceHand.
      * If DiceHand includes a dice with 1, value of roll is set to 0.
@@ -58,7 +71,7 @@ class Game
     {
         $allValues = $this->diceHand->values();
         echo ("<pre>");
-        var_dump ($allValues);
+        var_dump($allValues);
         echo ("</pre>");
 
         // if ($this->turnScore )

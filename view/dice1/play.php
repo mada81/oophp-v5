@@ -61,6 +61,10 @@ namespace Anax\View;
 
 <br>
 
+<?php if ($class != null) : ?>
+    <pre><?= $histogram->getAsText() ?></pre>
+<?php endif; ?>
+
 <?php if ($win == true) : ?>
     <p><b>Spelet över. Vinnare är: <?= $activePlayer ?></b></p>
 <?php endif; ?>

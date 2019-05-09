@@ -47,6 +47,11 @@ class DiceHand
         return $temp;
     }
 
+    public function getDices()
+    {
+        return $this->dices;
+    }
+
 
     /**
     * Get values of dices from last roll.

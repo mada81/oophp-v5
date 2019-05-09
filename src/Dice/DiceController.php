@@ -58,6 +58,7 @@ class DiceController implements AppInjectableInterface
         $session->set("playerTurnScore", 0);
         $session->set("activePlayer", "Spelare");
         $session->set("class", null);
+        $session->set("histogram", null);
 
         return $response->redirect("dice1/play");
     }
@@ -90,6 +91,7 @@ class DiceController implements AppInjectableInterface
         $win = $session->get("win");
         $class = $session->get("class");
         $res = $session->get("res");
+        $histogram = $session->get("histogram");
 
         // Set varables in session
         $session->set("win", null);
@@ -106,6 +108,7 @@ class DiceController implements AppInjectableInterface
             "win" => $win,
             "class" => $class,
             "res" => $res,
+            "histogram" => $histogram,
         ];
 
         $page->add("dice1/play", $data);
@@ -168,9 +171,19 @@ class DiceController implements AppInjectableInterface
         $playerTurnScore = $session->get("playerTurnScore");
 
         $game = new Game($playerTotalScore, $playerTurnScore);
+        // FUNKAR
         $res = $game->rollHand();
+        // $res = $game->rollHand();
+        // $res = $game->rollHand();
+        // $res = $game->rollHand();
+        echo($res);
+        // FUNKAR
         $playerTurnScore = $game->playerRoll($res);
         $class = $game->getValues();
+        $histogram = $session->get("histogram", new Histogram());
+        $histogram->addSerie($res[0]);
+        $histogram->addSerie($res[1]);
+        $session->set("histogram", $histogram);
         $session->set("res", $res);
         $session->set("class", $class);
         $session->set("win", $game->didIWin($playerTotalScore, $playerTurnScore));
@@ -228,6 +241,10 @@ class DiceController implements AppInjectableInterface
         $game = new Game($playerTotalScore, 0, $cpuTotalScore, $cpuTurnScore);
         $stay = $game->cpuCheckScore();
 
+
+
+        
+
         // Computer has above 20 turn score and stays.
         if ($stay == 1) {
             $session->set("cpuTotalScore", $session->get("cpuTotalScore") + $session->get("cpuTurnScore"));
@@ -238,6 +255,12 @@ class DiceController implements AppInjectableInterface
         // Computer has below 20 and keeps rolling.
         if ($stay == 0) {
             $res = $game->rollHand();
+
+            $histogram = $session->get("histogram", new Histogram());
+            $histogram->addSerie($res[0]);
+            $histogram->addSerie($res[1]);
+            $session->set("histogram", $histogram);
+
             $cpuTurnScore = $game->cpuRoll($res);
             $class = $game->getValues();
             $session->set("res", $res);
