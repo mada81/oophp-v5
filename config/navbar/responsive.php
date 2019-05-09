@@ -36,6 +36,11 @@ return [
                         "url" => "redovisning/kmom03",
                         "title" => "Redovisning för kmom03.",
                     ],
+                    [
+                        "text" => "Kmom04",
+                        "url" => "redovisning/kmom04",
+                        "title" => "Redovisning för kmom04.",
+                    ],
                 ],
             ],
         ],
@@ -70,8 +75,8 @@ return [
             "title" => "Spela Gissa nummer",
         ],
         [
-            "text" => "Tärningsspel 100",
-            "url" => "dice-game",
+            "text" => "Tärningsspel 100 (Controller)",
+            "url" => "dice-controller",
             "title" => "Spela Tärningsspel 100",
         ],
     ],

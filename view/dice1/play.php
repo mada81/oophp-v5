@@ -59,9 +59,8 @@ namespace Anax\View;
     <button>Starta om spelet</button>
 </a>
 
-<br>
-
 <?php if ($class != null) : ?>
+<h2>Histogram över tärningskast</h2>
     <pre><?= $histogram->getAsText() ?></pre>
 <?php endif; ?>
 
