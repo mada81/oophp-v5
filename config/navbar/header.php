@@ -78,5 +78,10 @@ return [
             "url" => "dice-controller",
             "title" => "Spela Tärningsspel 100",
         ],
+        [
+            "text" => "Filmer",
+            "url" => "movie",
+            "title" => "Visa filmer",
+        ],
     ],
 ];

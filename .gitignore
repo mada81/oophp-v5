@@ -3,5 +3,6 @@
 /vendor
 memory::
 composer.lock
-
+sql/movie/setup-db.sql
 doc/
+config/database.php
