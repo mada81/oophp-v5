@@ -4,8 +4,9 @@
  */
 return [
     // Use for styling the menu
+    "id" => "rm-menu",
     "wrapper" => null,
-    "class" => "my-navbar rm-default rm-desktop",
+    "class" => "rm-default rm-mobile",
  
     // Here comes the menu items
     "items" => [
@@ -43,12 +44,12 @@ return [
                     [
                         "text" => "Kmom05",
                         "url" => "redovisning/kmom05",
-                        "title" => "Redovisning för kmom04.",
+                        "title" => "Redovisning för kmom05.",
                     ],
                     [
                         "text" => "Kmom06",
                         "url" => "redovisning/kmom06",
-                        "title" => "Redovisning för kmom04.",
+                        "title" => "Redovisning för kmom06.",
                     ],
                 ],
             ],
