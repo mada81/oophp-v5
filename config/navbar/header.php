@@ -93,5 +93,10 @@ return [
             "url" => "movie",
             "title" => "Visa filmer",
         ],
+        [
+            "text" => "Textfilter",
+            "url" => "textfilter",
+            "title" => "Textfilter",
+        ],
     ],
 ];
