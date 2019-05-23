@@ -141,7 +141,7 @@ class MovieController implements AppInjectableInterface
         $data = [
             "resultset" => $resultset,
         ];
-
+        $page->add("movie/header");
         $page->add("movie/movie-edit", $data);
 
         return $page->render([
