@@ -24,17 +24,17 @@ class TextFilterController implements AppInjectableInterface
     }
     
     /**
-     * Show all movies.
+     * Use bbcode and nl2br to alter final text
      */
     public function bbcodeActionGet() : object
     {
         $page = $this->app->page;
-        $text = "[b]Bold text[/b] [i]Italic text[/i] [url=http://dbwebb.se]a link to dbwebb[/url]";
+        $text = "[b]Bold text[/b] [i]Ital\nic text[/i] [url=http://dbwebb.se]a link to dbwebb[/url]";
 
         $title = "Textfilter";        
 
         $filter = new \Mada\TextFilter\MyTextFilter();
-        $html = $filter->parse($text, ["bbcode"]);
+        $html = $filter->parse($text, ["bbcode", "nl2br"]);
 
         $data = [
             "html" => $html,
@@ -48,6 +48,9 @@ class TextFilterController implements AppInjectableInterface
         ]);
     }
 
+    /**
+     * Use clickable to alter final text
+     */
     public function linkActionGet() : object
     {
         $page = $this->app->page;
@@ -69,6 +72,9 @@ class TextFilterController implements AppInjectableInterface
         ]);
     }
 
+    /**
+     * Use markdown to alter final text
+     */
     public function markdownActionGet() : object
     {
         $page = $this->app->page;
@@ -89,89 +95,4 @@ class TextFilterController implements AppInjectableInterface
             "title" => $title,
         ]);
     }
-
-    // public function searchYearActionGet() : object
-    // {
-    //     $page = $this->app->page;
-    //     $db = $this->app->db;
-    //     $resultset = "";
-        
-    //     $title = "SELECT * WHERE year";
-    //     $year1 = getGet("year1");
-    //     $year2 = getGet("year2");
-    //     $db->connect();
-    //     if ($year1 && $year2) {
-    //         $sql = "SELECT * FROM movie WHERE year >= ? AND year <= ?;";
-    //         $resultset = $db->executeFetchAll($sql, [$year1, $year2]);
-    //     } elseif ($year1) {
-    //         $sql = "SELECT * FROM movie WHERE year >= ?;";
-    //         $resultset = $db->executeFetchAll($sql, [$year1]);
-    //     } elseif ($year2) {
-    //         $sql = "SELECT * FROM movie WHERE year <= ?;";
-    //         $resultset = $db->executeFetchAll($sql, [$year2]);
-    //     }
-
-    //     $data = [
-    //         "resultset" => $resultset,
-    //     ];
-
-    //     $page->add("movie/header");
-    //     $page->add("movie/search-year", $data);
-    //     $page->add("movie/index", $data);
-
-    //     return $page->render([
-    //         "title" => $title,
-    //     ]);
-    // }
-
-    // public function editMovieAction($id) : object
-    // {
-    //     $page = $this->app->page;
-    //     $db = $this->app->db;
-    //     $response = $this->app->response;
-
-    //     $title = "Edit movie";
-
-    //     $movieId    = getPost("movieId") ?: getGet("movieId");
-    //     $movieTitle = getPost("movieTitle");
-    //     $movieYear  = getPost("movieYear");
-    //     $movieImage = getPost("movieImage");
-        
-    //     if (getPost("doSave")) {
-    //         $sql = "UPDATE movie SET title = ?, year = ?, image = ? WHERE id = ?;";
-    //         $db->connect();
-    //         $db->execute($sql, [$movieTitle, $movieYear, $movieImage, $movieId]);
-    //     }
-    //     if (getPost("doDelete")) {
-    //         $sql = "DELETE FROM movie WHERE id = ?;";
-    //         $db->connect();
-    //         $db->execute($sql, [$id]);
-    //         return $response->redirect("movie/index");
-    //     }
-    //     $db->connect();
-    //     $sql = "SELECT * FROM movie WHERE id = ?;";
-    //     $resultset = $db->executeFetch($sql, [$id]);
-    //     $data = [
-    //         "resultset" => $resultset,
-    //     ];
-    //     $page->add("movie/header");
-    //     $page->add("movie/movie-edit", $data);
-
-    //     return $page->render([
-    //         "title" => $title,
-    //     ]);
-    // }
-
-    // public function addMovieAction() : object
-    // {
-    //     $db = $this->app->db;
-    //     $response = $this->app->response;
-
-    //     $sql = "INSERT INTO movie (title, year, image) VALUES (?, ?, ?);";
-    //     $db->connect();
-    //     $db->execute($sql, ["A title", 2019, "img/noimage.png"]);
-    //     $movieId = $db->lastInsertId();
-
-    //     return $response->redirect("movie/edit-movie/$movieId");
-    // }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Mada\TextFilter;
+namespace Mada\Content;
 
 use \Michelf\Markdown;
 
@@ -11,7 +11,7 @@ use \Michelf\Markdown;
  * @SuppressWarnings(PHPMD.UnusedPrivateField)
  * @SuppressWarnings(PHPMD.StaticAccess)
  */
-class MyTextFilter
+class ContentTextFilter
 {
     /**
      * @var array $filters Supported filters with method names of 
