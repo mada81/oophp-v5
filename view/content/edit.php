@@ -4,6 +4,9 @@ namespace Anax\View;
 
 ?>
 
+<?php if ($mess) : ?>
+    <p><b><?= $mess ?></b></p>
+<?php endif; ?>
 
 <form method="post">
     <fieldset>

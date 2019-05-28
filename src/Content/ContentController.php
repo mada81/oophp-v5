@@ -99,6 +99,8 @@ class ContentController implements AppInjectableInterface
 
     public function editActionGet($id = null) : object
     {
+        $mess = null;
+
         $page = $this->app->page;
         $db = $this->app->db;
         
@@ -111,9 +113,11 @@ class ContentController implements AppInjectableInterface
         $db->connect();
         $sql = "SELECT * FROM content WHERE id = ?;";
         $res = $db->executeFetch($sql, [$id]);
+        $mess = $this->app->session->get("mess");
 
         $data = [
             "content" => $res,
+            "mess" => $mess,
         ];
 
         $page->add("content/header");
@@ -126,6 +130,9 @@ class ContentController implements AppInjectableInterface
 
     public function editActionPost($id) : object
     {
+        $mess = null;
+        $this->app->session->set("mess", null);
+
         $page = $this->app->page;
         $db = $this->app->db;
         $response = $this->app->response;
@@ -156,13 +163,26 @@ class ContentController implements AppInjectableInterface
                 "contentId"
             ]);
             $slug = getPost("contentSlug");
+            $contentId = getPost("contentId");
             $db->connect();
-            $sql = "SELECT * FROM content WHERE slug=?";
-            $dbSlug = $db->executeFetch($sql, [$slug]);
+            
+            $sql = "SELECT * FROM content WHERE slug= ?";
+            $dbSlug = $db->executeFetchAll($sql, [$slug]);
 
-            if ($dbSlug) {
-                return $response->redirect("content/edit/$id");
+            if (count($dbSlug) > 0 && $dbSlug[0]->title != $slug) {
+                $mess = "Slug must be uniqe";
+                $this->app->session->set("mess", $mess);
+                return $response->redirect("content/edit/$contentId");
             }
+            // $sql = "SELECT slug FROM content;";
+            // $dbSlug = $db->executeFetchAll($sql);
+            // $counter = 0;
+
+            // foreach ($dbSlug as $old) {
+            //     if ($slug == $old) {
+            //         return $response->redirect("content/edit/$id");
+            //     }
+            // }
 
             if (!$params["contentSlug"]) {
                 $params["contentSlug"] = slugify($params["contentTitle"]);
@@ -175,23 +195,7 @@ class ContentController implements AppInjectableInterface
             $db->execute($sql, array_values($params));
         }
 
-        $title = "Edit | content";
-
-        $db->connect();
-        $sql = "SELECT * FROM content WHERE id = ?;";
-        $res = $db->executeFetch($sql, [$id]);
-
-        $data = [
-            "content" => $res,
-        ];
-
-        $page->add("content/header");
-        $page->add("content/edit", $data);
-        // $page->add("content/debug");
-
-        return $page->render([
-            "title" => $title,
-        ]);
+        return $response->redirect("content/edit/$contentId");
     }
 
     public function deleteActionGet($id) : object
